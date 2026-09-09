@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Refugio del Taz — Carta</title>
+<meta name="description" content="Carta de la fonda El Refugio del Taz: latas, promos de botella, barra y comida.">
+<meta name="theme-color" content="#1d120c">
+<style>
+  :root{
+    --madera-fondo:#1d120c;
+    --madera-tabla:#2b1a10;
+    --madera-veta:#150c07;
+    --tarjeta:#432c1c;
+    --tarjeta-borde:#6d4a2e;
+    --crema:#f4e6c8;
+    --crema-suave:#c9ac81;
+    --copihue:#b32430;
+    --copihue-claro:#d94450;
+    --azul:#1c3f6e;
+    --dorado:#e0a83c;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+
+  body{
+    margin:0;
+    background-color:var(--madera-fondo);
+    background-image:
+      repeating-linear-gradient(90deg,
+        rgba(0,0,0,.30) 0 1px,
+        rgba(255,255,255,.02) 1px 3px,
+        rgba(0,0,0,0) 3px 26px),
+      repeating-linear-gradient(180deg,
+        rgba(0,0,0,.45) 0 2px,
+        rgba(0,0,0,0) 2px 118px),
+      linear-gradient(180deg,#33200f 0%, #1d120c 55%, #120a06 100%);
+    color:var(--crema);
+    font-family:"Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    font-size:17px;
+    line-height:1.45;
+    -webkit-text-size-adjust:100%;
+  }
+
+  .hoja{max-width:560px;margin:0 auto;padding:0 16px 64px;}
+
+  /* ---------- guirnalda ---------- */
+  .guirnalda{
+    height:26px;
+    background:
+      linear-gradient(-45deg, transparent 50%, var(--copihue) 50%) 0 0/26px 26px repeat-x,
+      linear-gradient(45deg, transparent 50%, var(--copihue) 50%) 13px 0/26px 26px repeat-x;
+    filter:drop-shadow(0 2px 0 rgba(0,0,0,.35));
+  }
+  .guirnalda.azul{
+    background:
+      linear-gradient(-45deg, transparent 50%, var(--azul) 50%) 0 0/26px 26px repeat-x,
+      linear-gradient(45deg, transparent 50%, var(--azul) 50%) 13px 0/26px 26px repeat-x;
+  }
+  .cuerda{height:3px;background:linear-gradient(90deg,#6d4a2e,#a8763f,#6d4a2e);}
+
+  /* ---------- portada ---------- */
+  header{text-align:center;padding:34px 0 26px;}
+
+  .emblema{
+    width:104px;height:104px;margin:0 auto 20px;
+    border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #7b5330, #3d2717 72%);
+    border:3px solid var(--dorado);
+    box-shadow:0 0 0 7px rgba(0,0,0,.28), inset 0 3px 12px rgba(0,0,0,.5);
+    display:flex;align-items:center;justify-content:center;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:40px;font-weight:700;color:var(--dorado);
+    letter-spacing:.02em;
+  }
+
+  h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(34px,10vw,46px);
+    line-height:1.02;
+    margin:0;
+    font-weight:700;
+    letter-spacing:-.015em;
+    color:var(--crema);
+    text-shadow:0 2px 0 rgba(0,0,0,.55);
+  }
+  h1 .articulo{display:block;font-size:.44em;font-weight:400;font-style:italic;color:var(--crema-suave);margin-bottom:4px;letter-spacing:.04em;}
+
+  .bajada{margin:14px auto 0;max-width:34ch;color:var(--crema-suave);font-size:15px;}
+
+  /* ---------- navegación ---------- */
+  nav{
+    position:sticky;top:0;z-index:20;
+    margin:0 -16px;padding:10px 16px;
+    background:linear-gradient(180deg, rgba(21,12,7,.98), rgba(21,12,7,.92));
+    border-bottom:2px solid var(--tarjeta-borde);
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  nav::-webkit-scrollbar{display:none;}
+  .chips{display:flex;gap:9px;width:max-content;}
+  nav a{
+    display:block;
+    padding:9px 17px;
+    border:1.5px solid var(--tarjeta-borde);
+    border-radius:999px;
+    color:var(--crema);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    white-space:nowrap;
+    background:rgba(67,44,28,.75);
+  }
+  nav a:active{background:var(--copihue);border-color:var(--copihue-claro);}
+  nav a:focus-visible, .card:focus-visible{outline:3px solid var(--dorado);outline-offset:3px;}
+
+  /* ---------- secciones ---------- */
+  section{padding-top:38px;scroll-margin-top:64px;}
+
+  h2{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:30px;
+    margin:0 0 6px;
+    font-weight:700;
+    letter-spacing:-.01em;
+  }
+  .nota-seccion{margin:0 0 18px;color:var(--crema-suave);font-size:15px;}
+
+  /* ---------- cartel de precio ---------- */
+  .grupo{margin-bottom:26px;}
+  .cartel{
+    display:flex;align-items:baseline;gap:11px;
+    background:linear-gradient(180deg,var(--copihue),#8d1a24);
+    border:2px solid rgba(255,255,255,.16);
+    border-radius:9px 9px 4px 4px;
+    padding:9px 15px;
+    box-shadow:0 4px 0 rgba(0,0,0,.42);
+  }
+  .cartel .valor{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:35px;font-weight:700;line-height:1;
+    text-shadow:0 2px 0 rgba(0,0,0,.4);
+  }
+  .cartel .cuantos{font-size:14px;color:#f3d3ac;}
+
+  /* ---------- tarjetas ---------- */
+  .lista{
+    background:var(--tarjeta);
+    border:2px solid var(--tarjeta-borde);
+    border-top:none;
+    border-radius:0 0 10px 10px;
+    overflow:hidden;
+  }
+  .item{
+    display:flex;
+    gap:12px;
+    padding:13px 15px;
+    border-bottom:1px solid rgba(0,0,0,.32);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.045);
+  }
+  .item:last-child{border-bottom:none;}
+  .item .texto{flex:1;min-width:0;}
+  .nombre{font-weight:700;font-size:17px;}
+  .formato{color:var(--dorado);font-size:13px;font-weight:600;margin-left:6px;white-space:nowrap;}
+  .detalle{color:var(--crema-suave);font-size:14px;line-height:1.35;margin-top:3px;}
+  .precio{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:20px;font-weight:700;
+    white-space:nowrap;
+    align-self:center;
+  }
+  .precio.pendiente{font-size:14px;font-family:inherit;font-weight:600;color:var(--crema-suave);}
+
+  /* ---------- bloque con precio propio ---------- */
+  .bloque{
+    background:var(--tarjeta);
+    border:2px solid var(--tarjeta-borde);
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:20px;
+  }
+  .bloque h3{
+    margin:0;
+    padding:11px 15px;
+    background:linear-gradient(180deg,#5b3c25,#452c1a);
+    border-bottom:2px solid var(--tarjeta-borde);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:20px;
+    font-weight:700;
+  }
+  .promo{
+    display:flex;align-items:center;gap:9px;
+    margin:0 0 18px;
+    padding:11px 14px;
+    background:rgba(28,63,110,.35);
+    border-left:5px solid var(--azul);
+    border-radius:0 8px 8px 0;
+    font-size:15px;
+  }
+
+  footer{
+    margin-top:44px;
+    padding-top:22px;
+    border-top:2px solid var(--tarjeta-borde);
+    text-align:center;
+    color:var(--crema-suave);
+    font-size:13.5px;
+    line-height:1.6;
+  }
+  footer strong{color:var(--crema);}
+</style>
+</head>
+<body>
+
+<div class="guirnalda" aria-hidden="true"></div>
+<div class="cuerda" aria-hidden="true"></div>
+
+<div class="hoja">
+
+  <header>
+    <div class="emblema" aria-hidden="true">RT</div>
+    <h1><span class="articulo">El Refugio del</span>Taz</h1>
+    <p class="bajada">Fonda de Fiestas Patrias. Todo lo que tenemos, a la mano y bien helado.</p>
+  </header>
+
+  <nav aria-label="Secciones de la carta">
+    <div class="chips">
+      <a href="#latas">Latas</a>
+      <a href="#botellas">Botellas</a>
+      <a href="#barra">Barra</a>
+      <a href="#comida">Comida</a>
+    </div>
+  </nav>
+
+  <!-- ============ LATAS ============ -->
+  <section id="latas">
+    <h2>Latas y bebidas</h2>
+    <p class="nota-seccion">Ordenadas por precio. Todo servido helado.</p>
+
+    <div class="grupo">
+      <div class="cartel"><span class="valor">$1.500</span><span class="cuantos">2 opciones</span></div>
+      <div class="lista">
+        <div class="item"><div class="texto"><span class="nombre">Agua mineral con gas</span><span class="formato">500 cc</span></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Agua mineral sin gas</span><span class="formato">500 cc</span></div></div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <div class="cartel"><span class="valor">$2.000</span><span class="cuantos">2 opciones</span></div>
+      <div class="lista">
+        <div class="item"><div class="texto"><span class="nombre">Bebidas en lata</span><span class="formato">350 cc</span><div class="detalle">Cola, naranja, lima limón y más.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Score Gorilla</span><span class="formato">500 cc</span><div class="detalle">Energética, sabor intenso.</div></div></div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <div class="cartel"><span class="valor">$2.500</span><span class="cuantos">19 opciones</span></div>
+      <div class="lista">
+        <div class="item"><div class="texto"><span class="nombre">Gato Borgoña dulce</span><span class="formato">350 cc</span><div class="detalle">Vino tinto con frutilla, dulce y burbujeante.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Gato Tinto dulce</span><span class="formato">350 cc</span><div class="detalle">Tinto dulce, fácil de tomar.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Gato Rosé dulce</span><span class="formato">350 cc</span><div class="detalle">Rosado con frutilla y frambuesa.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Mistral Ice Blend</span><span class="formato">355 cc</span><div class="detalle">Pisco con notas cítricas.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Mistral Ice Energy</span><span class="formato">355 cc</span><div class="detalle">Pisco con guaraná, dulce y energizante.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Lemon Stones Limón</span><span class="formato">473 cc</span><div class="detalle">Cerveza con limón, suave y refrescante.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Lemon Stones Maracuyá</span><span class="formato">473 cc</span><div class="detalle">Cerveza con maracuyá, suave y dulce.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Lemon Stones Berries</span><span class="formato">473 cc</span><div class="detalle">Cerveza con frutos rojos.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Spirit Berries</span><span class="formato">275 cc</span><div class="detalle">Vodka con arándano, en botellín.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Spirit Mojito</span><span class="formato">275 cc</span><div class="detalle">Ron con lima y menta, en botellín.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Royal Guard</span><span class="formato">470 cc</span><div class="detalle">Lager chilena de cuerpo medio.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Heineken</span><span class="formato">473 cc</span><div class="detalle">Lager premium, amarga y refrescante.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Heineken 0.0</span><span class="formato">330 cc</span><div class="detalle">Sin alcohol, para el que maneja.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Escudo Silver</span><span class="formato">latón 710 cc</span><div class="detalle">Lager suave en latón grande.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Monster Verde</span><span class="formato">473 cc</span><div class="detalle">Energética clásica.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Monster Blanca</span><span class="formato">473 cc</span><div class="detalle">Sin azúcar, cítrica y ligera.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Red Bull</span><span class="formato">250 cc</span><div class="detalle">La clásica.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Red Bull Tropical</span><span class="formato">250 cc</span><div class="detalle">Edición amarilla.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Red Bull Açaí</span><span class="formato">250 cc</span><div class="detalle">Edición morada, frutos del bosque.</div></div></div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <div class="cartel"><span class="valor">$3.000</span><span class="cuantos">5 opciones</span></div>
+      <div class="lista">
+        <div class="item"><div class="texto"><span class="nombre">Kunstmann Torobayo</span><span class="formato">470 cc</span><div class="detalle">Ale valdiviana ámbar, maltosa y con carácter.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Patagonia Amber Lager</span><span class="formato">470 cc</span><div class="detalle">Ámbar, tostada y suave.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Patagonia Weisse</span><span class="formato">470 cc</span><div class="detalle">De trigo, ligera y cítrica.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Patagonia Negra</span><span class="formato">470 cc</span><div class="detalle">Oscura, dulce, con notas a café.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Budweiser</span><span class="formato">latón 710 cc</span><div class="detalle">Lager americana suave, latón grande.</div></div></div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <div class="cartel"><span class="valor">$3.500</span><span class="cuantos">5 opciones</span></div>
+      <div class="lista">
+        <div class="item"><div class="texto"><span class="nombre">Kantal Berries</span><span class="formato">473 cc</span><div class="detalle">Gin con frutos rojos, dulce y frutal.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Kantal Tónica</span><span class="formato">473 cc</span><div class="detalle">Gin tonic listo, cítrico y herbal.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Kantal Tropical</span><span class="formato">473 cc</span><div class="detalle">Gin con frutas tropicales.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Kantal Pomelo</span><span class="formato">473 cc</span><div class="detalle">Gin con pomelo, cítrico y ligero.</div></div></div>
+        <div class="item"><div class="texto"><span class="nombre">Jack &amp; Coca</span><span class="formato">350 cc</span><div class="detalle">Whiskey Jack Daniel's con bebida cola.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="guirnalda azul" aria-hidden="true"></div>
+
+  <!-- ============ BOTELLAS ============ -->
+  <section id="botellas">
+    <h2>Botellas</h2>
+    <p class="promo">Cada botella va con hielo y 4 vasos incluidos.</p>
+
+    <div class="bloque">
+      <h3>Pisco</h3>
+      <div class="item"><div class="texto"><span class="nombre">Mistral</span><span class="formato">750 ml</span></div><div class="precio">$20.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Mistral</span><span class="formato">1 litro</span></div><div class="precio">$25.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Mistral Nobel</span><span class="formato">750 ml</span><div class="detalle">Añejado en barrica, más dulce.</div></div><div class="precio">$28.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Mistral Nobel Apple</span><span class="formato">750 ml</span><div class="detalle">Sabor manzana verde.</div></div><div class="precio">$28.000</div></div>
+    </div>
+
+    <div class="bloque">
+      <h3>Whisky</h3>
+      <div class="item"><div class="texto"><span class="nombre">Ballantine's</span><span class="formato">750 ml</span></div><div class="precio">$25.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Johnnie Walker Red</span><span class="formato">750 ml</span></div><div class="precio">$30.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Jack Daniel's Nº7</span><span class="formato">1 litro</span></div><div class="precio">$70.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Jack Daniel's Apple</span><span class="formato">1 litro</span></div><div class="precio">$70.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Jack Daniel's Honey</span><span class="formato">1 litro</span></div><div class="precio">$70.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Johnnie Walker Black</span><span class="formato">1 litro</span></div><div class="precio">$80.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Johnnie Walker Double Black</span><span class="formato">750 ml</span></div><div class="precio">$80.000</div></div>
+    </div>
+
+    <div class="bloque">
+      <h3>Vinos</h3>
+      <div class="item"><div class="texto"><span class="nombre">Misiones</span><span class="formato">750 ml</span></div><div class="precio">$5.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Casillero del Diablo</span><span class="formato">750 ml</span></div><div class="precio">$7.500</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Diablo</span><span class="formato">750 ml</span></div><div class="precio">$10.000</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Toro de Piedra</span><span class="formato">750 ml</span></div><div class="precio">$13.000</div></div>
+    </div>
+  </section>
+
+  <div class="guirnalda" aria-hidden="true"></div>
+
+  <!-- ============ BARRA ============ -->
+  <section id="barra">
+    <h2>De la barra</h2>
+    <p class="nota-seccion">Preparados al momento, en vaso de 500 cc salvo que se indique.</p>
+    <div class="bloque">
+      <div class="item"><div class="texto"><span class="nombre">Terremoto</span><div class="detalle">Pipeño, helado de piña y granadina.</div></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Michelada</span><div class="detalle">Cerveza con limón, sal y salsas.</div></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Piscola</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Whiscola</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Mojito</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Mojito berries</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Tropical gin</span><span class="formato">copa</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Aperol Spritz</span><span class="formato">copa</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Ramazzotti</span><span class="formato">copa</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Shot de tequila</span><span class="formato">shot</span></div><div class="precio pendiente">Consultar</div></div>
+    </div>
+  </section>
+
+  <div class="guirnalda azul" aria-hidden="true"></div>
+
+  <!-- ============ COMIDA ============ -->
+  <section id="comida">
+    <h2>Para picar</h2>
+    <p class="nota-seccion">Todo hecho en el puesto.</p>
+    <div class="bloque">
+      <div class="item"><div class="texto"><span class="nombre">Ceviche</span><span class="formato">porción</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Anticucho</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Empanada de pino</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Empanada de queso</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Sopaipillas</span></div><div class="precio pendiente">Consultar</div></div>
+      <div class="item"><div class="texto"><span class="nombre">Papas fritas</span></div><div class="precio pendiente">Consultar</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>El Refugio del Taz</strong><br>
+    Precios en pesos chilenos. Sujetos a disponibilidad.<br>
+    Venta de alcohol prohibida a menores de 18 años. Bebe con moderación.
+  </footer>
+
+</div>
+
+<div class="cuerda" aria-hidden="true"></div>
+<div class="guirnalda" aria-hidden="true"></div>
+
+</body>
+</html>
